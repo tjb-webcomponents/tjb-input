@@ -1,0 +1,37 @@
+{
+  "name": "tjb-input",
+  "version": "0.0.1",
+  "description": "awesome input webcomponent",
+  "main": "docs/tjb-input.min.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "start": "babel --watch tjb-input.js --out-dir docs",
+    "build": "npm run build-max | npm run build-min",
+    "build-max": "babel tjb-input.js --out-file docs/tjb-input.js",
+    "build-min": "babel --minified tjb-input.js --out-file docs/tjb-input.min.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tjb-webcomponents/tjb-input.git"
+  },
+  "keywords": [
+    "webcomponent",
+    "custom",
+    "element",
+    "htmlelement",
+    "html",
+    "input",
+    "label"
+  ],
+  "author": "Thibault Jan Beyer",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tjb-webcomponents/tjb-input/issues"
+  },
+  "homepage": "https://github.com/tjb-webcomponents/tjb-input#readme",
+  "devDependencies": {
+    "babel-cli": "^6.26.0"
+  }
+}
