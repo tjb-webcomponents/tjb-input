@@ -1,4 +1,4 @@
-import WebComponent from 'https://tjb-webcomponents.github.io/tjb-WebComponent/tjb-wc.min.js';
+import WebComponent from 'https://tjb-webcomponents.github.io/tjb-webcomponent/tjb-wc.min.js';
 import html from 'https://tjb-webcomponents.github.io/html-template-string/html.min.js';
 
 class tjbInput extends WebComponent {
@@ -7,41 +7,46 @@ class tjbInput extends WebComponent {
 
   CSS() {
     return html `<style>
+      :host {
+        --color-error: #fa354c;
+        --input-padding: 10px;
+        --input-margin: 0 0 30px 0;
+        --input-width: 100%;
+        --input-font-size: 1rem;
+        --info-color: grey;
+        --info-font-size: 0.8rem;
+      }
+
       .message {
         font-size: 0.8rem;
       }
 
       .message.error {
-        color: #fa354c;
+        color: var(--color-error);
       }
 
       input {
         display: block;
-        font-family: "Lato", sans-serif;
-        font-size: 1rem;
-        padding: 10px;
-        margin-bottom: 30px;
-        width: 100%;
+        font-size: var(--input-font-size);
+        padding: var(--input-padding);
+        margin: var(--input-margin);
+        width: var(--input-width);
         box-sizing: border-box;
-        transition: border 250ms ease-in-out;
+        transition: border-color 250ms ease-in-out;
       }
 
       input.error {
-        border: 1px solid #fa354c;
+        border: 1px solid var(--color-error);
       }
 
 
       .info {
-        color: grey;
-        font-size: 0.8rem;
+        color: var(--info-color);
+        font-size: var(--info-font-size);
       }
 
-
       label {
-        position: relative;
         display: block;
-        margin-top: -1rem;
-        transition: transform 200ms ease-in-out, opacity 200ms ease-in-out;
       }
     </style>`;
   }
@@ -85,7 +90,7 @@ class tjbInput extends WebComponent {
 
     return html `
       <data-fragment>
-        ${this.labelNode}
+        ${this.label ? this.labelNode : ''}
         ${this.inputNode}
       </data-fragment>
     `;

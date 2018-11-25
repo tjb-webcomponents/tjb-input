@@ -1,14 +1,45 @@
-<tjb-input
-  class="tjb-input"
-  label="Password"
-  type="password"
-  name="password"
-  info="minimum 8 digits"
-  pattern=".{8,}"
-></tjb-input>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>tjb-input</title>
+</head>
+<body>
+  
+  <h1>tjb-input</h1>
 
-<script
-  src="tjb-input.js"
-  type="module"
-></script>
+  <h2>Example:</h2>
 
+  <div class="example">
+
+    <tjb-input
+      class="tjb-input"
+      label="Password"
+      type="password"
+      name="password"
+      info="minimum 8 digits"
+      pattern=".{8,}"
+    ></tjb-input>
+
+    <script
+      src="tjb-input.js"
+      type="module"
+    ></script>
+
+  </div>
+
+  <button onclick="handleTrigger()">Trigger</button>
+
+  <script>
+    function handleTrigger() {
+      console.log("yolo");
+      const input = document.querySelector('tjb-input');
+      input.messagetype = 'error';
+      input.message = 'There was an error here:';
+    }
+  </script>
+
+</body>
+</html>

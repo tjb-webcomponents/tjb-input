@@ -54,8 +54,13 @@ import 'tjb-input';
 ## Useage
 
 ```html
+<tjb-input></tjb-input>
+```
+
+With all attributes:
+
+```html
 <tjb-input
-  class="tjb-input"
   label="Password"
   type="password"
   name="password"
@@ -64,16 +69,27 @@ import 'tjb-input';
 ></tjb-input>
 ```
 
-- `label` the parent
-- `type` a submenu
-- `name` an item in the menu
-- `info` an item in the menu
-- `pattern` an item in the menu
+## Styling
 
-## Suggested styling
+Default public values:
 
 ```css
-.tjb-input {
+:host {
+  --color-error: #fa354c;
+  --input-padding: 10px;
+  --input-margin: 0 0 30px 0;
+  --input-width: 100%;
+  --input-font-size: 1rem;
+  --info-color: grey;
+  --info-font-size: 0.8rem;
+}
+```
+
+These can be overwritten easily by targetting the element. Example:
+
+```css
+tjb-input {
+  --input-width: 300px;
 }
 ```
 

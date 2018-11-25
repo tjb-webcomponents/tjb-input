@@ -7,7 +7,7 @@
     "doc": "docs"
   },
   "scripts": {
-    "start": "babel --watch tjb-input.js --out-dir docs",
+    "start": "babel --watch tjb-input.js --out-dir docs | http-server",
     "build": "npm run build-max | npm run build-min",
     "build-max": "babel tjb-input.js --out-file docs/tjb-input.js",
     "build-min": "babel --minified tjb-input.js --out-file docs/tjb-input.min.js"
@@ -32,6 +32,7 @@
   },
   "homepage": "https://github.com/tjb-webcomponents/tjb-input#readme",
   "devDependencies": {
-    "babel-cli": "^6.26.0"
+    "babel-cli": "^6.26.0",
+    "http-server": "^0.11.1"
   }
 }
