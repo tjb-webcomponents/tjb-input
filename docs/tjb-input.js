@@ -92,10 +92,10 @@ class tjbInput extends WebComponent {
     `;
 
     return html`
-      <data-fragment>
+      <form>
         ${this.label ? this.labelNode : ''}
         ${this.inputNode}
-      </data-fragment>
+      </form>
     `;
   }
 
