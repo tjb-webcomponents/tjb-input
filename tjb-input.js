@@ -92,8 +92,10 @@ class tjbInput extends WebComponent {
     `;
 
     return html `
-      ${this.label ? this.labelNode : ''}
-      ${this.inputNode}
+      <data-fragment>
+        ${this.label ? this.labelNode : ''}
+        ${this.inputNode}
+      </data-fragment>
     `;
   }
 
