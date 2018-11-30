@@ -146,6 +146,8 @@ class tjbInput extends WebComponent {
   }
 
   checkValidity() {
+    const inputValidity = this.inputNode.checkValidity();
+    if(!inputValidity) this.messagetype = 'error';
     return this.inputNode.checkValidity();
   }
 
