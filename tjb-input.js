@@ -84,6 +84,9 @@ class tjbInput extends WebComponent {
         ${this.pattern ? `
           pattern="${this.pattern}"
         ` : ``}
+        ${this.required ? `
+          required
+        ` : ``}
         id="input"
       />
     `;
@@ -107,7 +110,8 @@ class tjbInput extends WebComponent {
       'type',
       'name',
       'placeholder',
-      'pattern'
+      'pattern',
+      'required'
     ];
   }
 
@@ -139,6 +143,10 @@ class tjbInput extends WebComponent {
     this.messageNode.innerHTML = '';
     this.messageNode.className = 'message';
     this.inputNode.className = 'input';
+  }
+
+  checkValidity() {
+    return this.inputNode.checkValidity();
   }
 
 }
