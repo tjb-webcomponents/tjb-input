@@ -111,6 +111,7 @@ Default public values:
   --input-font-size: 1rem;
   --input-info-color: grey;
   --input-info-font-size: 0.8rem;
+  --input-label-margin: 0 0 5px 0;
 }
 ```
 
