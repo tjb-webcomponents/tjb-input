@@ -1,6 +1,6 @@
 {
   "name": "tjb-input",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "awesome input webcomponent",
   "main": "docs/tjb-input.min.js",
   "directories": {
