@@ -43,9 +43,11 @@ class tjbInput extends WebComponent() {
 
         input.error {
           border: 1px solid var(--color-error);
+          outline-color: var(--color-error);
         }
         input.success {
           border: 1px solid var(--color-success);
+          outline-color: var(--color-success);
         }
 
         .info {
