@@ -14,6 +14,7 @@ class tjbInput extends WebComponent() {
           --input-padding: 10px;
           --input-margin: 0 0 30px 0;
           --input-width: 100%;
+          --input-border-radius: 0;
           --input-font-size: 1rem;
           --info-color: grey;
           --info-font-size: 0.8rem;
@@ -37,6 +38,7 @@ class tjbInput extends WebComponent() {
           padding: var(--input-padding);
           margin: var(--input-margin);
           width: var(--input-width);
+          border-radius: var(--input-border-radius);
           box-sizing: border-box;
           transition: border-color 250ms ease-in-out;
         }
