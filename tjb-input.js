@@ -6,7 +6,7 @@ class tjbInput extends WebComponent() {
   ////////////////////////////////////////////////////////////
 
   CSS() {
-    return html `
+    return html`
       <style>
         :host {
           --color-error: #fa354c;
@@ -64,11 +64,11 @@ class tjbInput extends WebComponent() {
   ////////////////////////////////////////////////////////////
 
   HTML() {
-    this.messageNode = html `
+    this.messageNode = html`
       <div class="message"></div>
     `;
 
-    this.labelNode = html `
+    this.labelNode = html`
       <label for="input">
         ${this.label}
         ${
@@ -82,7 +82,7 @@ class tjbInput extends WebComponent() {
       </label>
     `;
 
-    this.inputNode = html `
+    this.inputNode = html`
       <input
         onkeyup="${e => this._handleKeyUp(e)}"
         ${
@@ -124,7 +124,7 @@ class tjbInput extends WebComponent() {
       />
     `;
 
-    return html `
+    return html`
       <data-fragment>
         ${this.label ? this.labelNode : ""} ${this.inputNode}
       </data-fragment>
@@ -176,8 +176,7 @@ class tjbInput extends WebComponent() {
   }
 
   _handleKeyUp(e) {
-    if (e.key === "Enter" && !this.nosubmit)
-      return this.submit();
+    if (e.key === "Enter" && !this.nosubmit) return this.submit();
 
     this.value = this.inputNode.value;
     this.hideMessage();
@@ -185,8 +184,8 @@ class tjbInput extends WebComponent() {
 
   submit() {
     if (!this.checkValidity()) return false;
-    const form = this.closest('form');
-    return form && form.submit();
+    const form = this.closest("form");
+    return form && form.dispatchEvent(new Event("submit"));
   }
 
   checkValidity() {
