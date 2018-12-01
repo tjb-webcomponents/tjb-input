@@ -6,7 +6,7 @@ class tjbInput extends WebComponent() {
   ////////////////////////////////////////////////////////////
 
   CSS() {
-    return html `
+    return html`
       <style>
         :host {
           --color-error: #fa354c;
@@ -56,11 +56,11 @@ class tjbInput extends WebComponent() {
   ////////////////////////////////////////////////////////////
 
   HTML() {
-    this.messageNode = html `
-      <div class="message" style="display: none;">${this.message}</div>
+    this.messageNode = html`
+      <div class="message" style="display: none;">${this.message || ""}</div>
     `;
 
-    this.labelNode = html `
+    this.labelNode = html`
       <label for="input">
         ${this.label}
         ${
@@ -74,7 +74,7 @@ class tjbInput extends WebComponent() {
       </label>
     `;
 
-    this.inputNode = html `
+    this.inputNode = html`
       <input
         onkeyup="${e => this.handleKeyUp()}"
         ${
@@ -116,7 +116,7 @@ class tjbInput extends WebComponent() {
       />
     `;
 
-    return html `
+    return html`
       <data-fragment>
         ${this.label ? this.labelNode : ""} ${this.inputNode}
       </data-fragment>

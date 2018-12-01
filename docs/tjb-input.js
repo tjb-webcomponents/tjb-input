@@ -57,7 +57,7 @@ class tjbInput extends WebComponent() {
 
   HTML() {
     this.messageNode = html`
-      <div class="message" style="display: none;">${this.message}</div>
+      <div class="message" style="display: none;">${this.message || ""}</div>
     `;
 
     this.labelNode = html`
