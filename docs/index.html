@@ -22,6 +22,16 @@
       info="minimum 8 digits"
       pattern=".{8,}"
       required="true"
+      message="Please check your password"
+    ></tjb-input>
+
+    <tjb-input
+      class="tjb-input"
+      label="email"
+      type="email"
+      name="email"
+      required="true"
+      message="Please check your email"
     ></tjb-input>
 
     <script
@@ -36,10 +46,11 @@
   <script>
     const tjbInput = document.querySelector('tjb-input');
     function handleTrigger() {
-      console.log("yolo");
-      const input = document.querySelector('tjb-input');
-      input.messagetype = 'error';
-      input.message = 'There was an error here:';
+      const inputs = document.querySelectorAll('tjb-input');
+      inputs.forEach(input => {
+        input.messagetype = 'error';
+        input.showmessage = true;
+      });
     }
   </script>
 
