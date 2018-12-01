@@ -14,7 +14,8 @@ class tjbInput extends WebComponent() {
           --input-padding: 10px;
           --input-margin: 0 0 30px 0;
           --input-width: 100%;
-          --input-border: 1px solid black;
+          --input-border: 1px solid transparent;
+          --input-border-bottom: 1px solid lightgrey;
           --input-border-radius: 0;
           --input-font-size: 1rem;
           --input-info-color: grey;
@@ -41,17 +42,18 @@ class tjbInput extends WebComponent() {
           margin: var(--input-margin);
           width: var(--input-width);
           border: var(--input-border);
+          border-bottom: var(--input-border-bottom);
           border-radius: var(--input-border-radius);
           box-sizing: border-box;
           transition: border-color 250ms ease-in-out;
         }
 
         input.error {
-          border: 1px solid var(--input-color-error);
+          border-bottom-color: var(--input-color-error);
           outline-color: var(--input-color-error);
         }
         input.success {
-          border: 1px solid var(--input-color-success);
+          border-bottom-color: var(--input-color-success);
           outline-color: var(--input-color-success);
         }
 
