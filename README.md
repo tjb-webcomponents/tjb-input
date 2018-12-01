@@ -106,7 +106,7 @@ Default public values:
   --input-padding: 10px;
   --input-margin: 0 0 30px 0;
   --input-width: 100%;
-  --input-border: 1px;
+  --input-border: 1px solid black;
   --input-border-radius: 0;
   --input-font-size: 1rem;
   --input-info-color: grey;
