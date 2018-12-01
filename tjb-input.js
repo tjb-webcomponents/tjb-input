@@ -84,7 +84,7 @@ class tjbInput extends WebComponent() {
 
     this.inputNode = html `
       <input
-        onkeyup="${e => this._handleKeyUp()}"
+        onkeyup="${e => this._handleKeyUp(e)}"
         ${
           this.name
             ? `
@@ -137,6 +137,7 @@ class tjbInput extends WebComponent() {
     return [
       "errormessage",
       "successmessage",
+      "nosubmit",
       "label",
       "info",
       "type",
@@ -174,9 +175,17 @@ class tjbInput extends WebComponent() {
     this.inputNode.className = `input`;
   }
 
-  _handleKeyUp() {
+  _handleKeyUp(e) {
+    if (e.key === "Enter" && !this.nosubmit)
+      return this.submit();
+
     this.value = this.inputNode.value;
     this.hideMessage();
+  }
+
+  submit() {
+    if (!checkValidity) return false;
+    return this.closest('form').submit();
   }
 
   checkValidity() {
