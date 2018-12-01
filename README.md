@@ -74,10 +74,10 @@ With all attributes:
 
 ### Methods
 
-| method      | properties                            | example                         | description                                           |
-| ----------- | ------------------------------------- | ------------------------------- | ----------------------------------------------------- |
-| showMessage | - String (type) ['error' / 'success'] | `tjbInput.showMessage("error")` | displays the respective border color and message text |
-| hideMessage | -                                     | `tjbInput.hideMessage()`        | hides border color and message text                   |
+| method      | properties                                 | example                         | description                                           |
+| ----------- | ------------------------------------------ | ------------------------------- | ----------------------------------------------------- |
+| showMessage | - String (type) <br> ['error' / 'success'] | `tjbInput.showMessage("error")` | displays the respective border color and message text |
+| hideMessage | -                                          | `tjbInput.hideMessage()`        | hides border color and message text                   |
 
 ## Styling
 
