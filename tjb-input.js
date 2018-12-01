@@ -185,7 +185,8 @@ class tjbInput extends WebComponent() {
 
   submit() {
     if (!this.checkValidity()) return false;
-    return this.closest('form').submit();
+    const form = this.closest('form');
+    return form && form.submit();
   }
 
   checkValidity() {
