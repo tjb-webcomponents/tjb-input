@@ -66,8 +66,17 @@ With all attributes:
   name="password"
   info="minimum 8 digits"
   pattern=".{8,}"
+  errormessage="please check this input"
+  successmessage="√"
+  required="true"
 ></tjb-input>
 ```
+
+### Methods
+
+method | properties | example | description
+showMessage | String (type) ['error' / 'success'] | `tjbInput.showMessage("error")` | displays the respective border color and message text
+hideMessage | - | `tjbInput.hideMessage()` | hides border color and message text
 
 ## Styling
 

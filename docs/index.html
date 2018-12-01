@@ -22,7 +22,7 @@
       info="minimum 8 digits"
       pattern=".{8,}"
       required="true"
-      message="Please check your password"
+      errormessage="Please check your password"
     ></tjb-input>
 
     <tjb-input
@@ -31,7 +31,7 @@
       type="email"
       name="email"
       required="true"
-      message="Please check your email"
+      errormessage="Please check your email"
     ></tjb-input>
 
     <script
@@ -47,10 +47,7 @@
     const tjbInput = document.querySelector('tjb-input');
     function handleTrigger() {
       const inputs = document.querySelectorAll('tjb-input');
-      inputs.forEach(input => {
-        input.messagetype = 'error';
-        input.showmessage = true;
-      });
+      inputs.forEach(input => input.checkValidity());
     }
   </script>
 

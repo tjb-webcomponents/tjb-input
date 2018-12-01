@@ -10,6 +10,7 @@ class tjbInput extends WebComponent() {
       <style>
         :host {
           --color-error: #fa354c;
+          --color-success: limegreen;
           --input-padding: 10px;
           --input-margin: 0 0 30px 0;
           --input-width: 100%;
@@ -26,6 +27,10 @@ class tjbInput extends WebComponent() {
           color: var(--color-error);
         }
 
+        .message.success {
+          color: var(--color-success);
+        }
+
         input {
           display: block;
           font-size: var(--input-font-size);
@@ -38,6 +43,9 @@ class tjbInput extends WebComponent() {
 
         input.error {
           border: 1px solid var(--color-error);
+        }
+        input.success {
+          border: 1px solid var(--color-success);
         }
 
         .info {
@@ -57,7 +65,7 @@ class tjbInput extends WebComponent() {
 
   HTML() {
     this.messageNode = html`
-      <div class="message" style="display: none;">${this.message || ""}</div>
+      <div class="message"></div>
     `;
 
     this.labelNode = html`
@@ -72,7 +80,7 @@ class tjbInput extends WebComponent() {
 
     this.inputNode = html`
       <input
-        onkeyup="${e => this.handleKeyUp()}"
+        onkeyup="${e => this._handleKeyUp()}"
         ${this.name ? `
           name="${this.name}"
         ` : ``}
@@ -102,7 +110,7 @@ class tjbInput extends WebComponent() {
   // Attribute Handling
   ////////////////////////////////////////////////////////////
   static get observedAttributes() {
-    return ["message", "messagetype", "showmessage", "label", "info", "type", "name", "placeholder", "pattern", "required"];
+    return ["errormessage", "successmessage", "label", "info", "type", "name", "placeholder", "pattern", "required"];
   }
 
   connectedCallback() {
@@ -120,31 +128,26 @@ class tjbInput extends WebComponent() {
   // Logic
   ////////////////////////////////////////////////////////////
 
-  handleMessageChange(newValue) {
-    if (!this.messageNode) return;
-    this.messageNode.innerHTML = newValue;
+  showMessage(type) {
+    this.messageNode.innerHTML = this[`${type}message`];
+    this.messageNode.className = `message ${type}`;
+    this.inputNode.className = `input ${type}`;
   }
 
-  handleShowmessageChange(newValue) {
-    this.messageNode.style.display = "inherit";
-    this.messageNode.className = `message ${this.messagetype}`;
-    this.inputNode.className = `input ${this.messagetype}`;
-  }
-
-  handleHidemessageChange(newValue) {
-    this.messageNode.style.display = "none";
-  }
-
-  handleKeyUp() {
-    this.value = this.inputNode.value;
+  hideMessage() {
     this.messageNode.innerHTML = "";
-    this.messageNode.className = "message";
-    this.inputNode.className = "input";
+    this.messageNode.className = `message`;
+    this.inputNode.className = `input`;
+  }
+
+  _handleKeyUp() {
+    this.value = this.inputNode.value;
+    this.hideMessage();
   }
 
   checkValidity() {
     const inputValidity = this.inputNode.checkValidity();
-    if (!inputValidity) this.messagetype = "error";
+    this.showMessage(inputValidity ? "success" : "error");
     return this.inputNode.checkValidity();
   }
 }
