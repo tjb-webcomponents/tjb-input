@@ -101,13 +101,16 @@ Default public values:
 
 ```css
 :host {
-  --color-error: #fa354c;
+  --input-color-error: #fa354c;
+  --input-color-success: limegreen;
   --input-padding: 10px;
   --input-margin: 0 0 30px 0;
   --input-width: 100%;
+  --input-border: 1px;
+  --input-border-radius: 0;
   --input-font-size: 1rem;
-  --info-color: grey;
-  --info-font-size: 0.8rem;
+  --input-info-color: grey;
+  --input-info-font-size: 0.8rem;
 }
 ```
 

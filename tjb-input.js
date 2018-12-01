@@ -9,15 +9,16 @@ class tjbInput extends WebComponent() {
     return html`
       <style>
         :host {
-          --color-error: #fa354c;
-          --color-success: limegreen;
+          --input-color-error: #fa354c;
+          --input-color-success: limegreen;
           --input-padding: 10px;
           --input-margin: 0 0 30px 0;
           --input-width: 100%;
+          --input-border: 1px;
           --input-border-radius: 0;
           --input-font-size: 1rem;
-          --info-color: grey;
-          --info-font-size: 0.8rem;
+          --input-info-color: grey;
+          --input-info-font-size: 0.8rem;
         }
 
         .message {
@@ -25,11 +26,11 @@ class tjbInput extends WebComponent() {
         }
 
         .message.error {
-          color: var(--color-error);
+          color: var(--input-color-error);
         }
 
         .message.success {
-          color: var(--color-success);
+          color: var(--input-color-success);
         }
 
         input {
@@ -38,23 +39,24 @@ class tjbInput extends WebComponent() {
           padding: var(--input-padding);
           margin: var(--input-margin);
           width: var(--input-width);
+          border: var(--input-border);
           border-radius: var(--input-border-radius);
           box-sizing: border-box;
           transition: border-color 250ms ease-in-out;
         }
 
         input.error {
-          border: 1px solid var(--color-error);
-          outline-color: var(--color-error);
+          border: 1px solid var(--input-color-error);
+          outline-color: var(--input-color-error);
         }
         input.success {
-          border: 1px solid var(--color-success);
-          outline-color: var(--color-success);
+          border: 1px solid var(--input-color-success);
+          outline-color: var(--input-color-success);
         }
 
         .info {
-          color: var(--info-color);
-          font-size: var(--info-font-size);
+          color: var(--input-info-color);
+          font-size: var(--input-info-font-size);
         }
 
         label {
