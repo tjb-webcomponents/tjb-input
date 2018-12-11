@@ -186,13 +186,15 @@ class tjbInput extends WebComponent() {
   }
 
   _handleKeyUp(e) {
-    if (e.key === "Enter" && !this.nosubmit) return this.submit();
+    if (e.key === "Enter" && !this.nosubmit)
+      return this.submit(e);
 
     this.value = this.inputNode.value;
     this.hideMessage();
   }
 
-  submit() {
+  submit(e) {
+    e.preventDefault();
     if (!this.checkValidity()) return false;
     const form = this.closest("form");
     return form && form.dispatchEvent(new Event("submit"));
