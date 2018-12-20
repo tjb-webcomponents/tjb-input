@@ -20,7 +20,6 @@ class tjbInput extends WebComponent() {
           --input-font-size: 1rem;
           --input-info-color: grey;
           --input-info-font-size: 0.8rem;
-          --input-color-disabled: grey;
           --input-label-margin: 0 0 5px 0;
         }
         .message {
@@ -52,13 +51,6 @@ class tjbInput extends WebComponent() {
           border-bottom-color: var(--input-color-success);
           outline-color: var(--input-color-success);
         }
-
-        input:disabled {
-          border-bottom-color: var(--input-color-disabled);
-          color: var(--input-color-disabled);
-          cursor: not-allowed;
-        }
-
         .info {
           color: var(--input-info-color);
           font-size: var(--input-info-font-size);
