@@ -51,6 +51,9 @@ class tjbInput extends WebComponent() {
           border-bottom-color: var(--input-color-success);
           outline-color: var(--input-color-success);
         }
+        input:disabled {
+          cursor: not-allowed;
+        }
         .info {
           color: var(--input-info-color);
           font-size: var(--input-info-font-size);
