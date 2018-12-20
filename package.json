@@ -7,11 +7,14 @@
     "doc": "docs"
   },
   "scripts": {
-    "prestart": "npm i",
-    "start": "babel --watch tjb-input.js --out-dir docs | http-server",
+    "start": "npm run watch-min | npm run watch-max | http-server",
     "build": "npm run build-max | npm run build-min",
     "build-max": "babel tjb-input.js --out-file docs/tjb-input.js",
-    "build-min": "babel --minified tjb-input.js --out-file docs/tjb-input.min.js"
+    "build-min": "babel --minified tjb-input.js --out-file docs/tjb-input.min.js",
+    "watch-max": "babel --watch tjb-input.js --out-file docs/tjb-input.js",
+    "watch-min": "babel --watch --minified tjb-input.js --out-file docs/tjb-input.min.js",
+    "patch": "npm run build; git add .; git commit -m '$M'; git push; npm version patch; npm publish",
+    "minor": "npm run build; git add .; git commit -m '$M'; git push; npm version minor; npm publish"
   },
   "repository": {
     "type": "git",
