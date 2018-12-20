@@ -13,8 +13,8 @@
     "build-min": "babel --minified tjb-input.js --out-file docs/tjb-input.min.js",
     "watch-max": "babel --watch tjb-input.js --out-file docs/tjb-input.js",
     "watch-min": "babel --watch --minified tjb-input.js --out-file docs/tjb-input.min.js",
-    "patch": "npm run build; git add .; git commit -m '$MESSAGE'; git push; npm version patch; npm publish",
-    "minor": "npm run build; git add .; git commit -m '$MESSAGE'; git push; npm version minor; npm publish"
+    "patch": "npm run build; git add .; git commit -m '${$MESSAGE}'; git push; npm version patch; npm publish",
+    "minor": "npm run build; git add .; git commit -m '${$MESSAGE}'; git push; npm version minor; npm publish"
   },
   "repository": {
     "type": "git",
