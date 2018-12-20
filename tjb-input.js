@@ -2,15 +2,76 @@ import WebComponent from "https://tjb-webcomponents.github.io/tjb-webcomponent/t
 import html from "https://tjb-webcomponents.github.io/html-template-string/html.min.js";
 
 class tjbInput extends WebComponent() {
+  // CSS
+  ////////////////////////////////////////////////////////////
+
+  CSS() {
+    return html`
+      <style>
+        :host {
+          --input-color-error: #fa354c;
+          --input-color-success: limegreen;
+          --input-padding: 10px;
+          --input-margin: 0 0 30px 0;
+          --input-width: 100%;
+          --input-border: 1px solid transparent;
+          --input-border-bottom: 1px solid lightgrey;
+          --input-border-radius: 0;
+          --input-font-size: 1rem;
+          --input-info-color: grey;
+          --input-info-font-size: 0.8rem;
+          --input-label-margin: 0 0 5px 0;
+        }
+        .message {
+          font-size: 0.8rem;
+        }
+        .message.error {
+          color: var(--input-color-error);
+        }
+        .message.success {
+          color: var(--input-color-success);
+        }
+        input {
+          display: block;
+          font-size: var(--input-font-size);
+          padding: var(--input-padding);
+          margin: var(--input-margin);
+          width: var(--input-width);
+          border: var(--input-border);
+          border-bottom: var(--input-border-bottom);
+          border-radius: var(--input-border-radius);
+          box-sizing: border-box;
+          transition: border-color 250ms ease-in-out;
+        }
+        input.error {
+          border-bottom-color: var(--input-color-error);
+          outline-color: var(--input-color-error);
+        }
+        input.success {
+          border-bottom-color: var(--input-color-success);
+          outline-color: var(--input-color-success);
+        }
+        .info {
+          color: var(--input-info-color);
+          font-size: var(--input-info-font-size);
+        }
+        label {
+          display: block;
+          margin: var(--input-label-margin);
+        }
+      </style>
+    `;
+  }
+
   // Markup
   ////////////////////////////////////////////////////////////
 
   HTML() {
-    this.messageNode = html `
+    this.messageNode = html`
       <div class="message"></div>
     `;
 
-    this.labelNode = html `
+    this.labelNode = html`
       <label for="input">
         ${this.label}
         ${
@@ -24,7 +85,7 @@ class tjbInput extends WebComponent() {
       </label>
     `;
 
-    this.inputNode = html `
+    this.inputNode = html`
       <input
         onkeyup="${e => this._handleKeyUp(e)}"
         ${
@@ -73,7 +134,7 @@ class tjbInput extends WebComponent() {
       />
     `;
 
-    return html `
+    return html`
       <data-fragment>
         ${this.label ? this.labelNode : ""} ${this.inputNode}
       </data-fragment>
@@ -127,8 +188,7 @@ class tjbInput extends WebComponent() {
   }
 
   _handleKeyUp(e) {
-    if (e.key === "Enter" && !this.nosubmit)
-      return this.submit(e);
+    if (e.key === "Enter" && !this.nosubmit) return this.submit(e);
 
     this.value = this.inputNode.value;
     this.hideMessage();
