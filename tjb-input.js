@@ -20,6 +20,7 @@ class tjbInput extends WebComponent() {
           --input-font-size: 1rem;
           --input-info-color: grey;
           --input-info-font-size: 0.8rem;
+          --input-color-disabled: grey;
           --input-label-margin: 0 0 5px 0;
         }
         .message {
@@ -51,6 +52,13 @@ class tjbInput extends WebComponent() {
           border-bottom-color: var(--input-color-success);
           outline-color: var(--input-color-success);
         }
+
+        input:disabled {
+          border-bottom-color: var(--input-color-disabled);
+          color: var(--input-color-disabled);
+          cursor: not-allowed;
+        }
+
         .info {
           color: var(--input-info-color);
           font-size: var(--input-info-font-size);
@@ -124,6 +132,13 @@ class tjbInput extends WebComponent() {
             : ``
         }
         ${
+          this.disabled
+            ? `
+          disabled
+        `
+            : ``
+        }
+        ${
           this.value
             ? `
           value="${this.value}"
@@ -145,30 +160,32 @@ class tjbInput extends WebComponent() {
   ////////////////////////////////////////////////////////////
   static get observedAttributes() {
     return [
+      "disabled",
       "errormessage",
-      "successmessage",
-      "nosubmit",
-      "label",
       "info",
-      "type",
+      "label",
       "name",
-      "value",
-      "placeholder",
+      "nosubmit",
       "pattern",
-      "required"
+      "placeholder",
+      "required",
+      "successmessage",
+      "type",
+      "value"
     ];
   }
 
   connectedCallback() {
     super.connectedCallback();
     // rerenders
-    this.handleLabelChange = this.reRender;
+    this.handleDisabledChange = this.reRender;
     this.handleInfoChange = this.reRender;
-    this.handleTypeChange = this.reRender;
+    this.handleLabelChange = this.reRender;
     this.handleNameChange = this.reRender;
-    this.handlePlaceholderChange = this.reRender;
     this.handlePatternChange = this.reRender;
+    this.handlePlaceholderChange = this.reRender;
     this.handleRequiredChange = this.reRender;
+    this.handleTypeChange = this.reRender;
     this.handleValueChange = this.reRender;
   }
 
