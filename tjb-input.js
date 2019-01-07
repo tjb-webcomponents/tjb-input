@@ -165,8 +165,7 @@ class tjbInput extends WebComponent() {
       "placeholder",
       "required",
       "successmessage",
-      "type",
-      "value"
+      "type"
     ];
   }
 
@@ -181,7 +180,6 @@ class tjbInput extends WebComponent() {
     this.handlePlaceholderChange = this.reRender;
     this.handleRequiredChange = this.reRender;
     this.handleTypeChange = this.reRender;
-    this.handleValueChange = this.reRender;
   }
 
   // Logic

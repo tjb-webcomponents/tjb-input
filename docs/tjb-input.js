@@ -122,7 +122,7 @@ class tjbInput extends WebComponent() {
   // Attribute Handling
   ////////////////////////////////////////////////////////////
   static get observedAttributes() {
-    return ["disabled", "errormessage", "info", "label", "name", "nosubmit", "pattern", "placeholder", "required", "successmessage", "type", "value"];
+    return ["disabled", "errormessage", "info", "label", "name", "nosubmit", "pattern", "placeholder", "required", "successmessage", "type"];
   }
 
   connectedCallback() {
@@ -136,7 +136,6 @@ class tjbInput extends WebComponent() {
     this.handlePlaceholderChange = this.reRender;
     this.handleRequiredChange = this.reRender;
     this.handleTypeChange = this.reRender;
-    this.handleValueChange = this.reRender;
   }
 
   // Logic
