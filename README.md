@@ -97,6 +97,12 @@ All attributes:
 | submit        | -                                           | `tjbInput.submit()`             | submits the nearest form element if input is valid                                                              |
 | focus         | -                                           | `tjbInput.focus()`              | focus the input node                                                                                            |
 
+### events
+
+| event  | description                                  |
+| ------ | -------------------------------------------- |
+| change | when the value of the input field is changed |
+
 ## Styling
 
 Default public values:

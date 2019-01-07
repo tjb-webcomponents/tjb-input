@@ -87,6 +87,7 @@ class tjbInput extends WebComponent() {
     this.inputNode = html`
       <input
         onkeyup="${e => this._handleKeyUp(e)}"
+        onchange="${e => this.dispatchEvent("change", e)}"
         ${this.name ? `
           name="${this.name}"
         ` : ``}
