@@ -77,14 +77,15 @@ All attributes:
 | attribute      | example                                   | description                                                            |
 | -------------- | ----------------------------------------- | ---------------------------------------------------------------------- |
 | label          | label="Password"                          | the text of the corresponding label field.                             |
-| type           | type="password"                           | type of the imput field                                                |
-| name           | name="password"                           | name of the imput field                                                |
+| type           | type="password"                           | type of the input field                                                |
+| name           | name="password"                           | name of the input field                                                |
 | info           | info="minimum 8 digits                    | tiny info text shown besides the label                                 |
 | pattern        | pattern=".{8,}"                           | regex pattern to check if input is valid                               |
 | errormessage   | errormessage="please check your password" | message to display if input is invalid                                 |
 | successmessage | successmessage="√"                        | message to display if input is valid                                   |
 | required       | required="true"                           | add required flag to input                                             |
 | nosubmit       | nosubmit="true"                           | whether or not the nearest form feald should be submitted on enter key |
+| value          | value="foo"                               | sets the value of the input field                                      |
 
 ### Methods
 
@@ -94,6 +95,7 @@ All attributes:
 | hideMessage   | -                                           | `tjbInput.hideMessage()`        | hides border color and message text                                                                             |
 | checkValidity | -                                           | `tjbInput.checkValidity()`      | checks whether or not the input field is valid. Displays the success message if so and the error message if not |
 | submit        | -                                           | `tjbInput.submit()`             | submits the nearest form element if input is valid                                                              |
+| focus         | -                                           | `tjbInput.focus()`              | focus the input node                                                                                            |
 
 ## Styling
 

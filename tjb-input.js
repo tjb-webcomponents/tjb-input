@@ -1,5 +1,7 @@
-import WebComponent from "https://tjb-webcomponents.github.io/tjb-webcomponent/tjb-wc.min.js";
-import html from "https://tjb-webcomponents.github.io/html-template-string/html.min.js";
+// import WebComponent from "https://tjb-webcomponents.github.io/tjb-webcomponent/tjb-wc.min.js";
+// import html from "https://tjb-webcomponents.github.io/html-template-string/html.min.js";
+import WebComponent from "/node_modules/tjb-webcomponent/docs/tjb-wc.min.js";
+import html from "/node_modules/html-template-string/docs/html.min.js";
 
 class tjbInput extends WebComponent() {
   // CSS
@@ -185,6 +187,10 @@ class tjbInput extends WebComponent() {
 
   // Logic
   ////////////////////////////////////////////////////////////
+
+  focus() {
+    this.inputNode.focus();
+  }
 
   showMessage(type) {
     this.messageNode.innerHTML = this[`${type}message`];
