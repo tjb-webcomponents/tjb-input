@@ -165,7 +165,8 @@ class tjbInput extends WebComponent() {
       "placeholder",
       "required",
       "successmessage",
-      "type"
+      "type",
+      "value"
     ];
   }
 
